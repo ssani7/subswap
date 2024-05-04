@@ -13,6 +13,7 @@ const Register = () => {
 		formState: { errors },
 	} = useForm();
 	const [displayName, setDisplayName] = useState('');
+	console.log('🚀 ~ Register ~ displayName:', displayName);
 	const [password, setPassword] = useState('');
 	const [updating, setUpdating] = useState('');
 	const [updateError, setUpdateError] = useState('');
@@ -131,7 +132,7 @@ const Register = () => {
 						</p>
 
 						{updating ? (
-							<button className="btn btn-primary hover:bg-gray-300 bg-gray-100 text-black w-full">
+							<button className="btn btn-primary hover:bg-gray-300 bg-gray-100 text-black w-full mt-6">
 								<span className="loading loading-dots loading-md"></span>
 							</button>
 						) : (

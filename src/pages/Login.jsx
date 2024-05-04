@@ -20,6 +20,7 @@ const Login = () => {
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
 
+	// eslint-disable-next-line no-unused-vars
 	const [signInWithEmailAndPassword, emailUser, credLoading, error] = useSignInWithEmailAndPassword(auth);
 
 	const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
@@ -75,7 +76,7 @@ const Login = () => {
 								onChange: (e) => setEmail(e.target.value),
 							})}
 						/>
-						{/* {errors?.email && <small className="text-error">{errors.email.message}</small>} */}
+						{errors?.email && <small className="text-error">{errors.email.message}</small>}
 
 						<label className="label mt-3">
 							<span className="label-text">Password</span>
@@ -88,7 +89,7 @@ const Login = () => {
 								required: 'Password is required',
 							})}
 						/>
-						{/* {errors?.password && <small className="text-error">{errors.password.message}</small>} */}
+						{errors?.password && <small className="text-error">{errors.password.message}</small>}
 
 						<p className="text-sm mt-3 font-semibold">
 							Forgot Password?{' '}
@@ -97,7 +98,7 @@ const Login = () => {
 							</span>
 						</p>
 
-						{/* {resetError && <small className="text-error mt-2">{resetError.message}</small>} */}
+						{resetError && <small className="text-error mt-2">{resetError.message}</small>}
 
 						<p className="text-sm mt-3 font-semibold">
 							Don't have an account?{' '}
@@ -107,7 +108,7 @@ const Login = () => {
 						</p>
 
 						{loading || updating ? (
-							<button className="btn btn-primary hover:bg-gray-300 bg-gray-100 text-black w-full">
+							<button className="btn btn-primary hover:bg-gray-300 bg-gray-100 text-black w-full mt-6">
 								<span className="loading loading-dots loading-md"></span>
 							</button>
 						) : (
