@@ -20,8 +20,8 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="w-full  flex items-center justify-between bg-nav px-20 sticky top-0">
-			<div className="navbar bg-nav">
+		<div className="w-full  flex items-center justify-between bg-black z-20 px-20 sticky top-0">
+			<div className="navbar bg-black">
 				<div className="flex-1">
 					<Link to="/">
 						<img className="size-20 object-cover" src={logo} alt="" />

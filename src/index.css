@@ -6,6 +6,16 @@
 
 .titleFont {
 	font-family: 'Jost', sans-serif;
-	font-size: 3rem;
+	font-size: 3.75rem;
 	font-weight: 900;
+}
+
+.gradientCard {
+	background-image: linear-gradient(to right, rgba(146, 30, 177, 0.25), rgba(73, 42, 207, 0.25));
+}
+
+.title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	font-family: 'Jost', sans-serif;
 }
