@@ -6,7 +6,8 @@ import spotify from '../src/assets/brands/spotify.png';
 import heroBg from '../src/assets/hero-bg-bottom.svg';
 import { motion } from 'framer-motion';
 import Card from './components/Card';
-import { MdOutlineMoreHoriz, MdOutlineShoppingCart } from 'react-icons/md';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function App() {
 	return (
@@ -18,9 +19,10 @@ function App() {
 					</div>
 					<h2 className="text-4xl font-bold titleFont leading-snug max-w-[700px]">Buy, Sell & Share your favorite subscriptions with ease</h2>
 					<p className="mb-4 mt-2 font-semibold text-gray-400">Customize your subscription in your own way</p>
-					<button className="btn btn-outline">
-						<IoCreateOutline /> Create Subscription
-					</button>
+					<Link className="btn btn-outline z-50" to="create-sub">
+						<IoCreateOutline />
+						Create Subscription
+					</Link>
 				</motion.div>
 
 				<motion.div
@@ -39,7 +41,7 @@ function App() {
 					</div>
 				</motion.div>
 
-				<img className="absolute -bottom-32" src={heroBg} alt="" />
+				<img className="absolute -bottom-32 -z-10" src={heroBg} alt="" />
 			</div>
 
 			<section className="px-32 pb-32">
