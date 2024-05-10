@@ -10,9 +10,9 @@ const CreatePack = () => {
 			<motion.p className="text-center title mt-5">Congratulations, Your new subsciption package is ready</motion.p>
 
 			<motion.div
-				className="flex items-center justify-center mt-32 px-3 py-12 rounded-xl bg-black relative w-fit mx-auto"
+				className="flex items-center justify-center mt-20 px-3 py-12 rounded-xl bg-black relative w-fit mx-auto"
 				initial={{ scale: 0.1, rotate: 0, x: 0 }}
-				animate={{ scale: 1.5, rotate: 0, x: 0 }}
+				animate={{ scale: 1.2, rotate: 0, x: 0 }}
 				transition={{ duration: 1 }}>
 				<p className="absolute top-3 left-3">SuperSub</p>
 				<p className="absolute bottom-3 left-3">#27A65B</p>

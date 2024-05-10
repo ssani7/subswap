@@ -54,7 +54,7 @@ const CreateSub = () => {
 		<div className="px-32 pt-7">
 			<div className="w-full">
 				<p className="title">Choose a Category</p>
-				<div className="grid grid-cols-8 gap-2 mt-5">
+				<div className="flex gap-2 mt-5">
 					{categories.map((category) => (
 						<button key={category} onClick={() => handleSelectCat(category)} className={`btn btn-outline ${selectedCat.includes(category) ? 'bg-white text-black' : ''}`}>
 							{category}
@@ -65,12 +65,12 @@ const CreateSub = () => {
 			{selectedCat.length ? (
 				<div className="mt-8">
 					<p className="title">Based On Your Selection</p>
-					<div className="grid grid-cols-8 gap-5 mt-5">
+					<div className="flex flex-wrap gap-5 mt-5">
 						{subs.map((sub) => (
 							<div
 								onClick={() => handleSelectSub(sub)}
 								key={sub.name}
-								className={`flex flex-col items-center gap-2 bg-nav w-full p-5 rounded-lg border ${subNames.includes(sub.name) ? 'border-white' : 'border-transparent'}`}>
+								className={`flex flex-col items-center gap-2 bg-nav w-fit max-w-48 p-5 rounded-lg border ${subNames.includes(sub.name) ? 'border-white' : 'border-transparent'}`}>
 								<img className="size-20 object-contain" src={sub.img} alt="" />
 								<p className="text-center">{sub.name}</p>
 							</div>
@@ -80,9 +80,9 @@ const CreateSub = () => {
 			) : (
 				<div className="mt-8">
 					<p className="title">Popular Choices</p>
-					<div className="grid grid-cols-10 gap-5 mt-5">
+					<div className="flex flex-wrap gap-5 mt-5">
 						{featured.map((sub) => (
-							<div key={sub.name} className="flex flex-col items-center gap-2 bg-nav w-full p-5 rounded-lg">
+							<div key={sub.name} className="flex flex-col items-center gap-2 bg-nav w-fit p-5 rounded-lg max-w-48">
 								<img className="size-20 object-contain" src={sub.img} alt="" />
 								<p>{sub.name}</p>
 							</div>

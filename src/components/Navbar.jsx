@@ -68,11 +68,11 @@ const Navbar = () => {
 									</div>
 								</div>
 								<ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-32 bg-nav">
-									<li>
+									{/* <li>
 										<a className="justify-between">Profile</a>
-									</li>
+									</li> */}
 									<li>
-										<a>Settings</a>
+										<Link to="/my-packages">My Packages</Link>
 									</li>
 									<li>
 										<p onClick={handleSignOut}>Logout</p>

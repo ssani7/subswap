@@ -5,6 +5,8 @@ import Login from '../pages/Login';
 import Register from '../pages/Reginster';
 import CreateSub from '../pages/CreateSub';
 import CreatePack from '../pages/CreatePack';
+import MyPackages from '../pages/MyPackages';
+import PackDetails from '../pages/PackDetails';
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
 			{
 				path: '/create-package',
 				element: <CreatePack />,
+			},
+			{
+				path: '/my-packages',
+				element: <MyPackages />,
+			},
+			{
+				path: '/my-packages/:id',
+				element: <PackDetails />,
 			},
 		],
 	},

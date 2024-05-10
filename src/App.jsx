@@ -8,8 +8,20 @@ import { motion } from 'framer-motion';
 import Card from './components/Card';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+import { Backdrop, CircularProgress } from '@mui/material';
 
 function App() {
+	const [user, loading] = useAuthState(auth);
+
+	if (loading)
+		return (
+			<Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={loading}>
+				<CircularProgress color="inherit" />
+			</Backdrop>
+		);
+
 	return (
 		<div className="">
 			<div className="py-32 flex items-center justify-around relative overflow-hidden">
@@ -19,7 +31,7 @@ function App() {
 					</div>
 					<h2 className="text-4xl font-bold titleFont leading-snug max-w-[700px]">Buy, Sell & Share your favorite subscriptions with ease</h2>
 					<p className="mb-4 mt-2 font-semibold text-gray-400">Customize your subscription in your own way</p>
-					<Link className="btn btn-outline z-50" to="create-sub">
+					<Link className="btn btn-outline z-50" to={user?.email ? 'create-sub' : '/auth/login'}>
 						<IoCreateOutline />
 						Create Subscription
 					</Link>
@@ -44,11 +56,11 @@ function App() {
 				<img className="absolute -bottom-32 -z-10" src={heroBg} alt="" />
 			</div>
 
-			<section className="px-32 pb-32">
-				<h2 className="title my-10 ">Popular Subscriptions</h2>
-				<div className="grid grid-cols-6 gap-5">
-					{[1, 2, 3, 4, 5, 6].map((sub) => (
-						<div key={sub} className="flex flex-col gap-2 items-center bg-black rounded-xl pb-4">
+			<section className="xl:px-32 pb-32">
+				<h2 className="title my-10 text-center">Popular Subscriptions</h2>
+				<div className="grid grid-cols-4 2xl:grid-cols-6 justify-evenly xl:justify-center">
+					{[1, 2, 3, 4].map((sub) => (
+						<div key={sub} className="flex flex-col gap-2 items-center font-bold rounded-xl pb-4 px-2 w-fit mx-auto">
 							<Card subs={sub} />
 							<div className="w-full px-4">
 								<p className="text-md mb-3">
@@ -57,7 +69,7 @@ function App() {
 								</p>
 								<p className="text-md mb-2">Subs: Netflix, Prime, Spotify...</p>
 							</div>
-							<div className="flex justify-center w-full px-4">
+							<div className="flex justify-start w-full px-4">
 								<button className="btn btn-md btn-outline">
 									<MdOutlineShoppingCart />
 									Buy now
