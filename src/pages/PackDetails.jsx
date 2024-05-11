@@ -67,7 +67,7 @@ const PackDetails = () => {
 							<p>{sub.validity}</p>
 						</td>
 						<td>
-							<a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer">
+							<a href="https://auth.openai.com/authorize?client_id=TdJIcbe16WoTHtN95nyywh5E4yOo6ItG&scope=openid%20email%20profile%20offline_access%20model.request%20model.read%20organization.read%20organization.write&response_type=code&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Flogin-web&audience=https%3A%2F%2Fapi.openai.com%2Fv1&device_id=779aeff6-2ede-448e-8639-0766bbd34590&prompt=login&state=fXoeI6Oe0JBS9QgRZ6x6PifA1tWaP51NsDeV9ZrXf6Y&code_challenge=O4Vnvmx1NoyeqaGiOjI6WA0ziSdzA2N07BAWoIToXmQ&code_challenge_method=S256" target="_blank" rel="noopener noreferrer">
 								<Button sx={{ textTransform: 'capitalize' }} variant="outlined">
 									Go to Site
 								</Button>
