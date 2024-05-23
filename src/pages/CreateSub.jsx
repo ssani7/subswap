@@ -1,28 +1,14 @@
-import netflix from '../assets/brands/netflix.png';
-import prime from '../assets/brands/prime.png';
-import spotify from '../assets/brands/spotify.png';
-import chatgpt from '../assets/brands/ChatGPT_logo.svg.png';
-import midjourny from '../assets/brands/midjourny.png.png';
-import adobe from '../assets/brands/adobe.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { allsubs } from '../utils/dummyData';
+import CreditCard from '../components/CreditCard';
 
-const categories = ['Movies and TV', 'Music', 'AI Tools', 'Professional Tools'];
-
-const featured = [
-	{ name: 'Netflix', img: netflix },
-	{ name: 'Prime Videos', img: prime },
-	{ name: 'Spotify', img: spotify },
-	{ name: 'Chat GPT', img: chatgpt },
-];
-
-const subs = [
-	{ name: 'Netflix', img: netflix },
-	{ name: 'Prime Videos', img: prime },
-	{ name: 'spotify', img: spotify },
-	{ name: 'Adobe Creative Cloud', img: adobe },
-	{ name: 'Chat GPT', img: chatgpt },
-	{ name: 'Mid Journey', img: midjourny },
+const categories = [
+	{ name: 'AI Tools', key: 'ai' },
+	{ name: 'Movies & TV', key: 'ott' },
+	{ name: 'Professional Tools', key: 'office' },
+	{ name: 'Video Editing Tools', key: 'video-editor' },
+	{ name: 'Photo Editing Tools', key: 'photo-editor' },
 ];
 
 const CreateSub = () => {
@@ -50,14 +36,17 @@ const CreateSub = () => {
 		}
 	};
 
+	const featured = allsubs.filter((sub) => sub?.featured);
+	const filteredSubs = allsubs.filter((sub) => selectedCat.some((category) => category.key === sub.category));
+
 	return (
-		<div className="px-32 pt-7">
+		<div className="px-32 py-7">
 			<div className="w-full">
 				<p className="title">Choose a Category</p>
 				<div className="flex gap-2 mt-5">
 					{categories.map((category) => (
 						<button key={category} onClick={() => handleSelectCat(category)} className={`btn btn-outline ${selectedCat.includes(category) ? 'bg-white text-black' : ''}`}>
-							{category}
+							{category.name}
 						</button>
 					))}
 				</div>
@@ -65,8 +54,8 @@ const CreateSub = () => {
 			{selectedCat.length ? (
 				<div className="mt-8">
 					<p className="title">Based On Your Selection</p>
-					<div className="flex flex-wrap gap-5 mt-5">
-						{subs.map((sub) => (
+					<div className="grid grid-cols-8 gap-5 mt-5">
+						{filteredSubs.map((sub) => (
 							<div
 								onClick={() => handleSelectSub(sub)}
 								key={sub.name}
@@ -104,7 +93,7 @@ const CreateSub = () => {
 							<tr key={sub.name} className="border-y border-gray-500">
 								<td className="flex items-center gap-5">
 									<div className="flex flex-col items-center gap-2 bg-nav rounded-lg size-">
-										<img className="size-10 object-contain" src={sub.img} alt="" />
+										<img className="size-10 object-contain" src={sub?.img || ''} alt="" />
 									</div>
 									<p className="text-center">{sub.name}</p>
 								</td>
@@ -124,6 +113,8 @@ const CreateSub = () => {
 							</tr>
 						))}
 					</table>
+
+					<CreditCard />
 
 					<button onClick={() => navigate('/create-package')} className="btn btn-primary mx-auto">
 						Create My Subscription

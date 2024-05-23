@@ -5,12 +5,11 @@ import chatgpt from '../src/assets/brands/ChatGPT_logo.svg.png';
 import spotify from '../src/assets/brands/spotify.png';
 import heroBg from '../src/assets/hero-bg-bottom.svg';
 import { motion } from 'framer-motion';
-import Card from './components/Card';
-import { MdOutlineShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import { Backdrop, CircularProgress } from '@mui/material';
+import CategorizedPack from './pages/CategorizedPack';
 
 function App() {
 	const [user, loading] = useAuthState(auth);
@@ -56,32 +55,7 @@ function App() {
 				<img className="absolute -bottom-32 -z-10" src={heroBg} alt="" />
 			</div>
 
-			<section className="xl:px-32 pb-32">
-				<h2 className="title my-10 text-center">Popular Subscriptions</h2>
-				<div className="grid grid-cols-4 2xl:grid-cols-6 justify-evenly xl:justify-center">
-					{[1, 2, 3, 4].map((sub) => (
-						<div key={sub} className="flex flex-col gap-2 items-center font-bold rounded-xl pb-4 px-2 w-fit mx-auto">
-							<Card subs={sub} />
-							<div className="w-full px-4">
-								<p className="text-md mb-3">
-									<span className="text-gray-500">Owned By: </span>
-									Zahid Hassan
-								</p>
-								<p className="text-md mb-2">Subs: Netflix, Prime, Spotify...</p>
-							</div>
-							<div className="flex justify-start w-full px-4">
-								<button className="btn btn-md btn-outline">
-									<MdOutlineShoppingCart />
-									Buy now
-								</button>
-								{/* <button className="btn ">
-									<MdOutlineMoreHoriz />
-								</button> */}
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
+			<CategorizedPack />
 		</div>
 	);
 }

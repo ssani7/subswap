@@ -7,8 +7,8 @@ import logo from '../assets/logo.jpg';
 // import { MdLogin } from 'react-icons/md';
 
 const navOptions = [
-	{ title: 'Collections', link: '' },
-	{ title: 'Categories', link: '' },
+	// { title: 'Collections', link: '' },
+	{ title: 'Categories', link: '/create-sub' },
 ];
 
 const Navbar = () => {

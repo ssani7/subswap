@@ -7,6 +7,7 @@ import CreateSub from '../pages/CreateSub';
 import CreatePack from '../pages/CreatePack';
 import MyPackages from '../pages/MyPackages';
 import PackDetails from '../pages/PackDetails';
+import PurchasePack from '../pages/PurchasePack';
 
 const router = createBrowserRouter([
 	{
@@ -32,6 +33,18 @@ const router = createBrowserRouter([
 			{
 				path: '/my-packages/:id',
 				element: <PackDetails />,
+			},
+			{
+				path: '/featured/:id',
+				element: <PurchasePack />,
+			},
+			{
+				path: '/ai/:id',
+				element: <PurchasePack />,
+			},
+			{
+				path: '/ott/:id',
+				element: <PurchasePack />,
 			},
 		],
 	},
