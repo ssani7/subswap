@@ -10,7 +10,7 @@ const socials = [
 const Footer = () => {
 	return (
 		<div className="flex flex-col items-center mx-auto py-5 bg-black text-sm">
-			<img className="size-20" src="/logo.jpg" alt="" />
+			<img className="size-20" src="/footer.jpg" alt="" />
 			<p className="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti libero neque dolorum est dolore</p>
 			<p className="text-center">Copyright © Subswap 2024</p>
 

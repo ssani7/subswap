@@ -3,7 +3,7 @@ import auth from '../firebase.init';
 import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
-import logo from '../assets/logo.jpg';
+import logo from '/logo.png';
 // import { MdLogin } from 'react-icons/md';
 
 const navOptions = [
@@ -24,7 +24,7 @@ const Navbar = () => {
 			<div className="navbar bg-black">
 				<div className="flex-1">
 					<Link to="/">
-						<img className="size-20 object-cover" src={logo} alt="" />
+						<img className="size-8 my-2 object-cover" src={logo} alt="" />
 					</Link>
 				</div>
 				<div className="flex-none">
